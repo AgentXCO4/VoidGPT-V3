@@ -1,1 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0a0c">
+  <title>VoidGPT V3</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">V</div>
+        <div><strong>VoidGPT</strong><span>V3</span></div>
+      </div>
 
+      <button class="new-chat" id="newChat">＋ New chat</button>
+
+      <nav class="nav">
+        <button class="nav-item active">◈ <span>Chat</span></button>
+        <button class="nav-item" id="memoryButton">◇ <span>Memory</span></button>
+        <button class="nav-item" id="settingsButton">⚙ <span>Settings</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <span class="status-dot"></span>
+        V3 online
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">VOIDGPT</span>
+          <h1>V3</h1>
+        </div>
+
+        <div class="top-actions">
+          <select id="model" aria-label="Model">
+            <option value="">Default model</option>
+          </select>
+        </div>
+      </header>
+
+      <section class="chat" id="chat">
+        <div class="welcome" id="welcome">
+          <div class="welcome-icon">◈</div>
+          <h2>VoidGPT V3</h2>
+          <p>Smart, secure, and built for developers.</p>
+
+          <div class="suggestions">
+            <button data-prompt="Explain Python functions like I am learning them for the first time.">
+              Explain Python functions
+            </button>
+
+            <button data-prompt="Help me debug this code without immediately giving me the answer.">
+              Debug my code
+            </button>
+
+            <button data-prompt="Give me a small programming challenge.">
+              Give me a challenge
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <form class="composer" id="composer">
+        <textarea
+          id="message"
+          rows="1"
+          placeholder="Message VoidGPT..."
+          autocomplete="off"
+        ></textarea>
+
+        <button
+          class="send"
+          id="sendButton"
+          type="submit"
+          aria-label="Send"
+        >
+          ↑
+        </button>
+      </form>
+
+      <div class="footer-note">
+        VoidGPT can make mistakes. Check important information.
+      </div>
+    </main>
+  </div>
+
+  <dialog id="settingsDialog">
+    <form method="dialog" class="dialog-card" id="settingsForm">
+      <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+
+      <h2>Settings</h2>
+
+      <label>
+        API endpoint
+        <input
+          id="apiEndpoint"
+          type="url"
+          placeholder="https://your-api.vercel.app/api/chat"
+        >
+      </label>
+
+      <label>
+        Default model
+        <input
+          id="defaultModel"
+          type="text"
+          placeholder="openai/gpt-4o-mini"
+        >
+      </label>
+
+      <div class="settings-actions">
+        <button class="secondary" value="cancel">Cancel</button>
+        <button class="primary" id="saveSettings" value="default">
+          Save
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="memoryDialog">
+    <form method="dialog" class="dialog-card">
+      <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+
+      <h2>Memory</h2>
+
+      <p class="muted">
+        V3 keeps browser memory locally for this starter build.
+      </p>
+
+      <textarea
+        id="memoryText"
+        rows="6"
+        placeholder="Things VoidGPT should remember..."
+      ></textarea>
+
+      <div class="settings-actions">
+        <button class="secondary" id="clearMemory" value="cancel">
+          Clear
+        </button>
+
+        <button class="primary" id="saveMemory" value="default">
+          Save
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
